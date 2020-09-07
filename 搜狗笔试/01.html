@@ -1,0 +1,43 @@
+<!--
+ * @Author: angula
+ * @Date: 2020-09-07 10:31:04
+ * @LastEditTime: 2020-09-07 10:51:45
+ * @FilePath: \JS\study\搜狗笔试\01.html
+-->
+
+<!-- 题目要求：
+    在页面中运行 getTags() 之后，函数就返回数组 ['html', 'head' 'body', 'div', 'p'] (顺序不重要)。
+注意：
+1、标签名称使用小写
+2、请使用ES5语法
+3、答题时不要使用第三方插件
+-->
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div></div>
+  <p></p>
+</body>
+<script>
+  (function getTags() {
+    // 返回HTMLCollection
+    var list = document.getElementsByTagName('*');
+    // console.log(list);
+    var tags = Array.prototype.slice.call(list);
+    // console.log(tags);   // 打印[html, head, body, div, p, script]
+    console.log(tags.map(function (item) {
+      // console.log(item.tagName.toLowerCase());   //打印 html head body div p script 测试成功
+      var result = item.tagName.toLowerCase();
+      // console.log(result);
+      return result;
+
+    }))  //打印：["html", "head", "body", "div", "p", "script"] 
+
+  })()
+</script>
+
+</html>
