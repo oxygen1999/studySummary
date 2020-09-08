@@ -1,8 +1,8 @@
 /*
  * @Author: angula
  * @Date: 2020-09-02 15:48:51
- * @LastEditTime: 2020-09-02 18:13:28
- * @FilePath: \JS\深拷贝\01浅拷贝.js
+ * @LastEditTime: 2020-09-07 16:46:15
+ * @FilePath: \JS\study\JS相关\深拷贝\01浅拷贝.js
  */
 // 浅拷贝
 //Object.assign(target,...sources)
@@ -76,10 +76,10 @@ console.log(target); //{ a: { b: 2 } }
  *Array.prototype.concat
  */
 
-// let arr = [{ a: 1 }, { a: 1 }, { a: 1 }];
-// let arr2 = [{ b: 1 }, { b: 1 }, { b: 1 }];
-// let arr3 = arr.concat(arr2);
-// arr2[0].b = 10;
-// console.log(arr3)  //[ { a: 1 }, { a: 1 }, { a: 1 }, { b: 10 }, { b: 1 }, { b: 1 } ]
+let arr = [{ a: 1 }, { a: 1 }, { a: 1 }];
+let arr2 = [{ b: 1 }, { b: 1 }, { b: 1 }];
+let arr3 = arr.concat(arr2);
+arr2[0].b = 10;
+console.log(arr3)  //[ { a: 1 }, { a: 1 }, { a: 1 }, { b: 10 }, { b: 1 }, { b: 1 } ]
 
 
