@@ -1,7 +1,7 @@
 /*
  * @Author: angula
  * @Date: 2020-09-09 10:38:37
- * @LastEditTime: 2020-09-09 11:01:57
+ * @LastEditTime: 2020-09-09 11:02:44
  * @FilePath: \JS\study\笔试相关\小红书笔试\03.js
  */
 /**
@@ -18,7 +18,6 @@ function fn(str, arr) {
     let length = item.length;
     let ret = new RegExp(`${item}`, 'g');
     str = str.replace(ret, '*'.repeat(length));
-
   }
   return str;
 }
