@@ -1,8 +1,8 @@
 /*
  * @Author: angula
  * @Date: 2020-09-10 09:54:05
- * @LastEditTime: 2020-09-10 10:29:36
- * @FilePath: \JS\study\笔试相关\美团笔试\编程1.js
+ * @LastEditTime: 2020-09-10 11:44:52
+ * @FilePath: \JS\Github-前端知识总结仓库\studySummary\笔试相关\美团笔试\编程1.js
  */
 /**
  * 形如1, 1, 2, 3, 5, 8, 13, 21, 34, 55的数列，
@@ -21,7 +21,7 @@
 // console.log(fib(50))
 
 //for循环实现 
-//!完全可以实现题目要求，但是牛客上判题不通过，说输出值为空
+//!完全可以实现题目要求，但是牛客上判题不通过，说输出值为空 
 function fib(n) {
   let last = 1;
   let last2 = 0;
