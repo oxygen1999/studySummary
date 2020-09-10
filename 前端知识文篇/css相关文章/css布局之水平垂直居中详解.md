@@ -17,7 +17,7 @@
 			.div1{
 				width: 300px;
 				height: 300px;
-				border:1px solid aqua;
+				border:1px solid aqua; 
 
 			}
 			.box{
