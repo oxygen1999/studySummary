@@ -1,0 +1,74 @@
+<!--
+ * @Author: angula
+ * @Date: 2020-09-14 17:01:33
+ * @LastEditTime: 2020-09-14 21:39:15
+ * @FilePath: \JS\Github-前端知识总结仓库\studySummary\JS相关\防抖节流\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #container {
+      width: 100%;
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+      color: #fff;
+      background-color: #444;
+      background-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/underscore.js/1.11.0/underscore.js"></script>
+  <script src="./debounce.js"></script>
+
+
+  <script>
+    let count = 0;
+    // 展示事件频繁发生
+    let container = document.querySelector('#container');
+
+    function doSomething(e) {
+      // event
+      console.log(e);
+      console.log(this)
+      // 这里可能是回调或者是ajax请求
+      // 这里做个示例
+      container.innerHTML = count++
+    }
+
+    // !无防抖，数字会不停的增加，相当于不断的发送请求
+    // container.onmousemove = doSomething;
+
+    // 使用防抖，300ms内不会重复发出请求
+    // container.onmousemove = _.debounce(doSomething, 300);
+
+
+    //------------------以上为防抖函数的认识与使用---------------------------------//
+
+    //-------------------手动实现debounce.js---------------------------------------//
+
+    // 手写的防抖函数测试：
+
+    function doAnother(e) {
+      // 修复this指向问题
+      console.log(this)
+      // 解决event指向问题
+      console.log(e);
+
+      container.innerHTML = count++
+    }
+    container.onmousemove = debounce(doAnother, 300, true)
+
+  </script>
+</body>
+
+</html>
