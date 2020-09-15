@@ -1,7 +1,7 @@
 <!--
  * @Author: angula
  * @Date: 2020-09-14 17:01:33
- * @LastEditTime: 2020-09-14 21:39:15
+ * @LastEditTime: 2020-09-15 15:30:51
  * @FilePath: \JS\Github-前端知识总结仓库\studySummary\JS相关\防抖节流\index.html
 -->
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
   <div id="container"></div>
   <script src="https://cdn.bootcdn.net/ajax/libs/underscore.js/1.11.0/underscore.js"></script>
   <script src="./debounce.js"></script>
-
+  <script src="./throttle.js"></script>
 
   <script>
     let count = 0;
@@ -66,7 +66,39 @@
 
       container.innerHTML = count++
     }
-    container.onmousemove = debounce(doAnother, 300, true)
+    // container.onmousemove = debounce(doAnother, 300, true)
+
+
+
+
+
+
+
+
+
+    //-----------------------手动实现节流函数的测试---------------------------------//
+    function doThrottle(e) {
+      // 修复this指向问题
+      // console.log(this)
+      // 解决event指向问题
+      // console.log(e);
+      container.innerHTML = count++
+    }
+    //---------原生的节流函数使用-----------------
+    /*
+    container.onmousemove = _.throttle(doThrottle, 1000, {
+      leading: false,   //是否立即执行
+      trailing: true     //最后一次是否执行
+      //两者不能同为false,否则就会产生bug,会导致触发事件立即执行一次后就失效了!
+    })
+    */
+
+
+    //-----------------------手写节流函数的测试---------------------------------//
+    container.onmousemove = throttle(doThrottle, 1000, {
+      leading: false,
+      trailing: true
+    });
 
   </script>
 </body>
