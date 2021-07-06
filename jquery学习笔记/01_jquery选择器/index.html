@@ -1,0 +1,72 @@
+<!--
+ * @Author: angula
+ * @Date: 2021-07-06 14:41:46
+ * @LastEditTime: 2021-07-06 15:44:43
+ * @FilePath: \studySummary\jquery学习笔记\01_jquery选择器\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let i = 1;
+      $('button').click(function () {
+
+        if (i % 2 == 0) {
+          $('p').show(1000);
+          i++;
+        } else if (i % 2 != 0) {
+          $('p').hide(1000);
+          i++;
+        }
+      })
+
+    })
+
+    // $(document).ready(function () {
+    //   $('p').click(function () {
+    //     $(this).hide()
+    //   })
+    //   $('p').mouseenter(function () {
+    //     console.log("鼠标移动到了p上方")
+    //   })
+    //   $('p').mouseleave(function () {
+    //     console.log("你的鼠标移出了p段落")
+    //   })
+    //   $('p').mousedown(function () {
+    //     console.log("你的鼠标在p段落上按下");
+    //   })
+    //   $('p').mouseup(function () {
+    //     console.log("你的鼠标在p段落下松开")
+    //   })
+    // })
+
+
+    // $(document).ready(function () {
+    //   $('p').hover(
+    //     function () {
+    //       console.log("鼠标移入上方")
+    //     }, function () {
+    //       console.log("鼠标移出上方")
+    //     })
+    // })
+  </script>
+</head>
+
+<body>
+  <h1>
+    标题
+  </h1>
+  <div style="height:100px;width:200px">
+    <p>段落111111111111111</p>
+    <p>段落222222222222222</p>
+  </div>
+  <button>点击事件</button>
+</body>
+
+</html>

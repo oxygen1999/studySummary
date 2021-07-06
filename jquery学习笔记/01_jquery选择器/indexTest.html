@@ -1,0 +1,165 @@
+<!--
+ * @Author: angula
+ * @Date: 2021-07-06 15:46:13
+ * @LastEditTime: 2021-07-06 17:26:36
+ * @FilePath: \studySummary\jquery学习笔记\01_jquery选择器\indexTest.html
+-->
+<!-- 
+  ** 下拉框模拟
+  ** 点击下拉框内容自动填充
+  ** 选择内容后关闭下拉框
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script> -->
+  <script src="../jquery.js"></script>
+  <style>
+    .main {
+      position: absolute;
+      top: 100px;
+      left: 400px;
+    }
+
+    .content {
+      width: 200px;
+      height: 30px;
+      background-color: #cccccc;
+      font-size: 13px;
+      font-family: PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      line-height: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 下拉框样式 */
+    .allItem {
+      width: 200px;
+      height: 120px;
+
+      background: ffffff;
+      box-shadow: 0px 6px 12px 1px rgba(0, 0, 0, 0.08);
+      border-radius: 0 0 0 10px;
+      overflow-y: scroll;
+
+    }
+
+    /* 下拉框内容样式 */
+    .item {
+      margin-top: 2px;
+      width: 198x;
+      height: 30px;
+      background-color: #ffffff;
+      border-bottom: solid 1px #E0E0E0;
+
+      font-size: 13px;
+      font-family: PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      line-height: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+
+    /* 定义滚动条样式 */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      background-color: rgba(240, 240, 240, 1);
+    }
+
+    /*定义滚动条轨道 内阴影+圆角*/
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 0px rgba(240, 240, 240, .5);
+      border-radius: 10px;
+      background-color: rgba(240, 240, 240, .5);
+    }
+
+    /*定义滑块 内阴影+圆角*/
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      box-shadow: inset 0 0 0px rgba(240, 240, 240, .5);
+      background-color: rgba(240, 240, 240, .5);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="main">
+    <div class="content">请选择一个国家
+    </div>
+    <div class="allItem">
+      <div class="item">中国</div>
+      <div class="item">日本</div>
+      <div class="item">美国</div>
+      <div class="item">俄罗斯1</div>
+      <div class="item">俄罗斯2</div>
+      <div class="item">俄罗斯3</div>
+      <div class="item">俄罗斯4</div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function () {
+      // 隐藏下拉选项
+      $('.allItem').hide()
+      // 点击选择国家div时，展示下拉列表,再次点击时，隐藏下拉列表
+
+      // 设置一个变量表示点击次数
+
+      let clickNum = 1;
+      $('.content').click(function () {
+
+        if (clickNum % 2 == 1) {
+          $('.allItem').slideDown(500, "swing")
+          clickNum++
+        } else if (clickNum % 2 == 0) {
+          $('.allItem').slideUp(500, "linear")
+          clickNum++
+        }
+
+      })
+
+      //  优化写法
+      // $('.content').toggle(function () {
+      //   $('.allItem').slideDown(500, "swing")
+      // })
+
+      // 获取点击的内容
+      let clickContent = ''
+      $('.item').click(function () {
+        clickContent = $(this).text()
+        console.log($(this).text())
+
+        // 填充到div中
+        var dataShow = $('.content');
+        dataShow.text("");
+        // 添加选中的内容
+        dataShow.append(clickContent)
+        // 关闭下拉框
+        $('.allItem').slideUp()
+        clickNum++
+      })
+
+      // $('.main').click(function () {
+      //   $('.allItem').slideUp()
+      //   clickNum++
+      // })
+
+
+
+    })
+  </script>
+</body>
+
+</html>
